@@ -10,7 +10,7 @@ Prototype 1.6 fixes by the_coder via http://snipplr.com/view/5502/stickman-labs-
 
 This is the Prototype 1.6 compatible Version of Stickmanlabs Accordion V2.0 with additional afterComplete option.
 
-You'll need Prototype 1.6 and Scriptaculous 1.8.6 too to make this work.
+You'll need Prototype 1.6 and Scriptaculous 1.8.2 too to make this work.
 
 == Usage
 
