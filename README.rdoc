@@ -1,16 +1,18 @@
-== Accordion v2.1
-
 Copyright (c) 2007 stickmanlabs
-Additions (c) 2009 Thomas von Deyen :: thinkworkdone
+Additions (c) 2009 Thomas von Deyen | thinkworkdone
+
 Author: Kevin P Miller | http://www.stickmanlabs.com
 Additional Author: Thomas von Deyen | http://www.thinkworkdone.com
+
 Prototype 1.6 fixes by the_coder via http://snipplr.com/view/5502/stickman-labs-accordion-updated-for-prototypejs-16-/
+
+= Accordion v2.1
 
 This is the Prototype 1.6 compatible Version of Stickmanlabs Accordion V2.0 with additional afterComplete option.
 
 You'll need Prototype 1.6 and Scriptaculous 1.8.6 too to make this work.
 
-= Usage
+== Usage
 
 Include Prototype, Scriptaculous and Accordion in the head section of your HTML file like:
 
@@ -71,7 +73,7 @@ That's it! If you want more control of you accordion pass some of these options:
   onEvent: A eventname without the 'on'. I.e. 'mouseover', 'mousedown', or 'click' (the default).
   afterComplete: A function called after animating the accordions open/close action. Interesting for nested links, i.e. in navigations. So you can wait the effect to finish before redirecting to the other page.
 
-= Navigation Accordion Example
+== Navigation Accordion Example
 
 This is a more complex example that shows the usage of the 'afterComplete' option.
 
@@ -127,7 +129,7 @@ This is a more complex example that shows the usage of the 'afterComplete' optio
 	// ]]>
 	</script>
 
-= Activate-accordion-content-on-page-load Example
+== Activate-accordion-content-on-page-load Example
 
 You want to open one or more accordion content divs on page load? Then add 'accordion_toggle_active' to the toggle you want to be opened and take this script.
 
@@ -152,5 +154,5 @@ You want to open one or more accordion content divs on page load? Then add 'acco
 
 More examples on http://www.stickmanlabs.com/accordion/
 
-= License
+== License
 Accordion is freely distributable under the terms of an MIT-style license. See included MIT-LICENSE file
