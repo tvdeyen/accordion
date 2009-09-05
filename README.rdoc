@@ -20,7 +20,7 @@ Include Prototype, Scriptaculous and Accordion in the head section of your HTML 
   <script src="js/scriptaculous.js?load=effects" lang="text/javascript"></script>
   <script src="js/accordion.js" lang="text/javascript"></script>
 
-Put +prototype.js+, +scriptaculous.js+, +effects.js+ and +accordion.js+ in a folder named +js+ inside the rootpath of your website.
+Put prototype.js, scriptaculous.js, effects.js and accordion.js in a folder named +js+ inside the rootpath of your website.
 
 Make an accordion with following layout:
 
@@ -49,7 +49,7 @@ Make an accordion with following layout:
     etc...
   </div>
 
-At the very bottom of you page, right before the closing +</body>+ tag place this javascript source
+At the very bottom of you page, right before the closing </body> tag place this javascript source
 
   <script type="text/javascript" charset="utf-8">
   // <![CDATA[
@@ -73,7 +73,7 @@ That's it! If you want more control of you accordion pass some of these options:
   onEvent: A eventname without the 'on'. I.e. 'mouseover', 'mousedown', or 'click' (the default).
   afterComplete: A function called after animating the accordions open/close action.
 
-The +afterComplete+ optione is very interesting for nested links, i.e. in navigations. So you can wait the effect to finish before redirecting to another page.
+The +afterComplete+ option is very interesting for nested links, i.e. in navigations. So you can wait the effect to finish before redirecting to another page.
 
 == Navigation Accordion Example
 
