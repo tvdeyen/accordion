@@ -20,137 +20,139 @@ Include Prototype, Scriptaculous and Accordion in the head section of your HTML 
   <script src="js/scriptaculous.js?load=effects" lang="text/javascript"></script>
   <script src="js/accordion.js" lang="text/javascript"></script>
 
-Put 'prototype.js', 'scriptaculous.js', 'effects.js' and 'accordion.js' in a folder named 'js' inside the rootpath of your website.
+Put +prototype.js+, +scriptaculous.js+, +effects.js+ and +accordion.js+ in a folder named +js+ inside the rootpath of your website.
 
 Make an accordion with following layout:
 
-	<div id="accordion">
-	  <h2 class="accordion_toggle">Category A</h2>
-	  <div class="accordion_content">
-	  	<p>Content of your Accordion can be everything like:</p>
-			<ul>
-				<li>Listitems</li>
-				<li>divs</li>
-				<li>ps</li>
-				<li>spans</li>
-				<li>tables</li>
-				<li>etc...</li>
-			</ul>
-			<p>Just place it inside the div with the classname passed to the accordion.js options.</p>
-	  </div>
-	  <h2 class="accordion_toggle">Category B</h2>
-	  <div class="accordion_content">
-	  	<p>More content....</p>
-	  </div>
-	  <h2 class="accordion_toggle">Category C</h2>
-	  <div class="accordion_content">
-	  	<p>More content....</p>
-	  </div>
-		etc...
-	</div>
+  <div id="accordion">
+    <h2 class="accordion_toggle">Category A</h2>
+    <div class="accordion_content">
+      <p>Content of your Accordion can be everything like:</p>
+      <ul>
+        <li>Listitems</li>
+        <li>divs</li>
+        <li>ps</li>
+        <li>spans</li>
+        <li>tables</li>
+        <li>etc...</li>
+      </ul>
+      <p>Just place it inside the div with the classname passed to the accordion.js options.</p>
+    </div>
+    <h2 class="accordion_toggle">Category B</h2>
+    <div class="accordion_content">
+      <p>More content....</p>
+    </div>
+    <h2 class="accordion_toggle">Category C</h2>
+    <div class="accordion_content">
+      <p>More content....</p>
+    </div>
+    etc...
+  </div>
 
-At the very bottom of you page, right before the closing </body> tag place this javascript source
+At the very bottom of you page, right before the closing +</body>+ tag place this javascript source
 
-	<script type="text/javascript" charset="utf-8">
-	// <![CDATA[
-		var my_accordion = new Accordion('accordion');
-	// ]]>
-	</script>
+  <script type="text/javascript" charset="utf-8">
+  // <![CDATA[
+    var my_accordion = new Accordion('accordion');
+  // ]]>
+  </script>
 
 You can style the accordion as you like. But assure to hide overflowing accordion_content like:
 
-	.accordion_content {overflow: hidden;}
+  .accordion_content {overflow: hidden;}
 
 That's it! If you want more control of you accordion pass some of these options:
 
   resizeSpeed: Everything below 8 (the default) is fast.
   classNames: {
-	  toggle       : 'some_classname',
-	  toggleActive : 'some_classname',
-	  content      : 'some_classname'
+    toggle       : 'some_classname',
+    toggleActive : 'some_classname',
+    content      : 'some_classname'
   }
   direction: If you want to make an horizontal accordion then pass 'horizontal'. Default is 'vertical'.
   onEvent: A eventname without the 'on'. I.e. 'mouseover', 'mousedown', or 'click' (the default).
-  afterComplete: A function called after animating the accordions open/close action. Interesting for nested links, i.e. in navigations. So you can wait the effect to finish before redirecting to the other page.
+  afterComplete: A function called after animating the accordions open/close action.
+
+The +afterComplete+ optione is very interesting for nested links, i.e. in navigations. So you can wait the effect to finish before redirecting to another page.
 
 == Navigation Accordion Example
 
-This is a more complex example that shows the usage of the 'afterComplete' option.
+This is a more complex example that shows the usage of the +afterComplete+ option.
 
   <style type="text/css">
-		.navi_sub_items{overflow: hidden;}
-	</style>
+    .navi_sub_items{overflow: hidden;}
+  </style>
   <div id="navigation">
     <div class="navi_item">
-			<a href="/pets">Pets</a>
-		</div>
+      <a href="/pets">Pets</a>
+    </div>
     <div class="navi_sub_items">
       <ul>
-				<li>Kittens</li>
-				<li>Puppies</li>
-				<li>Mice</li>
-			</ul>
+        <li>Kittens</li>
+        <li>Puppies</li>
+        <li>Mice</li>
+      </ul>
     </div>
     <div class="navi_item">
-			<a href="/services">Services</a>
-		</div>
-		<div class="navi_sub_items">
-			<ul>
-				<li>Dog Hairdressing</li>
-				<li>Cat Massage</li>
-				<li>Mice milking</li>
-			</ul>
-		</div>
+      <a href="/services">Services</a>
+    </div>
+    <div class="navi_sub_items">
+      <ul>
+        <li>Dog Hairdressing</li>
+        <li>Cat Massage</li>
+        <li>Mice milking</li>
+      </ul>
+    </div>
     <div class="navi_item">
-			<a href="/info">Info</a>
-		</div>
-		<div class="navi_sub_items">
-			<ul>
-				<li>Contact</li>
-				<li>About</li>
-				<li>Legal</li>
-			</ul>
-		</div>
+      <a href="/info">Info</a>
+    </div>
+    <div class="navi_sub_items">
+      <ul>
+        <li>Contact</li>
+        <li>About</li>
+        <li>Legal</li>
+      </ul>
+    </div>
   </div>
-	<script type="text/javascript" charset="utf-8">
-	// <![CDATA[
-		var navigation = new Accordion('navigation', {
-			classNames: {
-				toggle: 'navi_item',
-				toggleActive: 'navi_active',
-				content: 'navi_sub_items'
-			},
-			afterComplete: function(){
-				toggle = $$('#navigation .navi_active')[0];
-				url = toggle.down('a').readAttribute('href');
-				window.location = url;
-			}
-		});
-	// ]]>
-	</script>
+  <script type="text/javascript" charset="utf-8">
+  // <![CDATA[
+    var navigation = new Accordion('navigation', {
+      classNames: {
+        toggle: 'navi_item',
+        toggleActive: 'navi_active',
+        content: 'navi_sub_items'
+      },
+      afterComplete: function(){
+        toggle = $$('#navigation .navi_active')[0];
+        url = toggle.down('a').readAttribute('href');
+        window.location = url;
+      }
+    });
+  // ]]>
+  </script>
 
 == Activate-accordion-content-on-page-load Example
 
-You want to open one or more accordion content divs on page load? Then add 'accordion_toggle_active' to the toggle you want to be opened and take this script.
+You want to open one or more accordion content divs on page load? Then add +accordion_toggle_active+ to the toggle you want to be opened and take this script.
 
-	<script type="text/javascript" charset="utf-8">
-	// <![CDATA[
-		var my_accordion = new Accordion('accordion');
-	// ]]>
-	</script>
-	<script type="text/javascript" charset="utf-8">
-	// <![CDATA[
-		var active_accordions = $$('#accordion .accordion_toggle_active');
-		active_accordions.each(function(toggle) {
-			var content = toggle.next(0);
-			content.setStyle({
-				height: 'auto',
-				display: 'block'
-			});
-			my_accordion.showAccordion = content;
-		});
-	// ]]>
-	</script>
+  <script type="text/javascript" charset="utf-8">
+  // <![CDATA[
+    var my_accordion = new Accordion('accordion');
+  // ]]>
+  </script>
+  <script type="text/javascript" charset="utf-8">
+  // <![CDATA[
+    var active_accordions = $$('#accordion .accordion_toggle_active');
+    active_accordions.each(function(toggle) {
+      var content = toggle.next(0);
+      content.setStyle({
+        height: 'auto',
+        display: 'block'
+      });
+      my_accordion.showAccordion = content;
+    });
+  // ]]>
+  </script>
 
 More examples on http://www.stickmanlabs.com/accordion/
 
