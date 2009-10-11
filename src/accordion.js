@@ -25,6 +25,7 @@ if (typeof Effect == 'undefined')
  *  -- direction: The direction of the accordion. Default = 'vertical'
  *  -- onEvent (String): The Eventname the toggle listens to. Default = 'click'
  *  -- afterComplete (Function): The Function to call after the Accordion animates.
+ *  -- activeClosable (Boolean): Should the active Accordion be closable or not? Default = true.
  **/
 
 var Accordion = Class.create();
@@ -52,7 +53,8 @@ Accordion.prototype = {
 			},
 			direction: 'vertical',
 			onEvent: 'click',
-			afterComplete: function(){}
+			afterComplete: function(){},
+			activeClosable: true
 		}, options || {});
 		this.duration = ((11 - this.options.resizeSpeed) * 0.15);
 		var accordions = $$('#' + container + ' .' + this.options.classNames.toggle);
@@ -126,10 +128,15 @@ Accordion.prototype = {
 				});				
 				this.showAccordion = null;
 				this.animating = false;
+				this.options.afterComplete();
 			}.bind(this)
 		});
-    this.showAccordion.previous(0).removeClassName(this.options.classNames.toggleActive);
-		new Effect.Scale(this.showAccordion, 0, options.update(this.scaling).toObject());
+		if (this.options.activeClosable) {
+  		this.showAccordion.previous(0).removeClassName(this.options.classNames.toggleActive);
+		  new Effect.Scale(this.showAccordion, 0, options.update(this.scaling).toObject());
+		} else {
+		  this.options.afterComplete();
+		}
 	},
 
 	/**
