@@ -1,9 +1,9 @@
 /** Accordion v2.1
  *
  * Copyright (c) 2007 stickmanlabs
- * Additions (c) 2009 Thomas von Deyen :: thinkworkdone
+ * Additions (c) 2009 Thomas von Deyen
  * Author: Kevin P Miller | http://www.stickmanlabs.com
- * Additional Author: Thomas von Deyen | http://www.thinkworkdone.com
+ * Additional Author: Thomas von Deyen | http://thomas.vondeyen.com
  * Prototype 1.6 fixes by the_coder via http://snipplr.com/view/5502/stickman-labs-accordion-updated-for-prototypejs-16-/
  *
  * Accordion is freely distributable under the terms of an MIT-style license.
@@ -37,7 +37,9 @@ Accordion.prototype = {
 	animating : false,
 	initialize: function(container, options) {
 	  if (!$(container)) {
-	    throw(container + " doesn't exist!");
+	    if (typeof(console) != 'undefined') {
+	      console.error(container + " doesn't exist!");
+	    }
 	    return false;
 	  }	  
 		this.options = Object.extend({
@@ -195,4 +197,4 @@ Accordion.prototype = {
 		});
 	}
 
-}
+};
